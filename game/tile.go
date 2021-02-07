@@ -7,10 +7,17 @@ import (
 	// "github.com/hajimehoshi/ebiten/v2/ebitenutil"
 )
 
+const (
+	MarkX = -1
+	MarkO = 1
+	NoMark = 0
+)
+
 type Tile struct {
 	x, y float64
 	color color.Color
 	image *ebiten.Image
+	marked int
 }
 
 // const (

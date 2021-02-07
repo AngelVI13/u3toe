@@ -32,7 +32,7 @@ func init() {
 }
 
 type Game struct{
-	tiles []Tile // todo maybe use pointer to Tiles ?
+	tiles []*Tile
 }
 
 // NewGame generates a new Game object.
@@ -49,9 +49,10 @@ func NewGame() (*Game, error) {
 			y: float64(boardOffsetY + col*(tileSize + tileMargin)),
 			color: blueColor,
 			image: tileImage,
+			marked: NoMark,
 		}
 		fmt.Println(tile)
-		g.tiles = append(g.tiles, tile)
+		g.tiles = append(g.tiles, &tile)
 	} 
 	
 	return g, nil
